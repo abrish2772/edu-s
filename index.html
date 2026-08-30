@@ -1,0 +1,249 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Agency Tracker</title>
+
+  <style>
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+      font-family: Arial, sans-serif;
+    }
+
+    body {
+      background: #f5f7fb;
+      color: #1f2937;
+    }
+
+    header {
+      background: #111827;
+      color: white;
+      padding: 20px 30px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
+
+    header h1 {
+      font-size: 22px;
+    }
+
+    .container {
+      max-width: 1200px;
+      margin: 30px auto;
+      padding: 0 20px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 15px;
+      margin-bottom: 25px;
+    }
+
+    .card {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    }
+
+    .card h3 {
+      font-size: 14px;
+      color: #6b7280;
+      margin-bottom: 10px;
+    }
+
+    .card p {
+      font-size: 28px;
+      font-weight: bold;
+    }
+
+    .toolbar {
+      background: white;
+      padding: 20px;
+      border-radius: 12px;
+      margin-bottom: 20px;
+      display: flex;
+      gap: 10px;
+      justify-content: space-between;
+    }
+
+    input, select {
+      padding: 11px;
+      border: 1px solid #d1d5db;
+      border-radius: 7px;
+      font-size: 14px;
+    }
+
+    input {
+      flex: 1;
+    }
+
+    button {
+      border: none;
+      padding: 11px 18px;
+      border-radius: 7px;
+      background: #2563eb;
+      color: white;
+      cursor: pointer;
+      font-weight: bold;
+    }
+
+    button:hover {
+      background: #1d4ed8;
+    }
+
+    .table-box {
+      background: white;
+      border-radius: 12px;
+      overflow-x: auto;
+      box-shadow: 0 2px 10px rgba(0,0,0,.06);
+    }
+
+    table {
+      width: 100%;
+      border-collapse: collapse;
+    }
+
+    th, td {
+      padding: 15px;
+      text-align: left;
+      border-bottom: 1px solid #e5e7eb;
+      white-space: nowrap;
+    }
+
+    th {
+      background: #f9fafb;
+      font-size: 13px;
+    }
+
+    .status {
+      padding: 5px 9px;
+      border-radius: 20px;
+      background: #e5e7eb;
+      font-size: 12px;
+      font-weight: bold;
+    }
+
+    .empty {
+      text-align: center;
+      padding: 40px;
+      color: #6b7280;
+    }
+
+    @media (max-width: 800px) {
+      .cards {
+        grid-template-columns: repeat(2, 1fr);
+      }
+
+      .toolbar {
+        flex-direction: column;
+      }
+    }
+
+    @media (max-width: 500px) {
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      header {
+        padding: 15px;
+      }
+    }
+  </style>
+</head>
+
+<body>
+
+  <header>
+    <h1>Agency Tracker</h1>
+    <span>Worker Management</span>
+  </header>
+
+  <main class="container">
+
+    <section class="cards">
+      <div class="card">
+        <h3>Total Workers</h3>
+        <p id="total">0</p>
+      </div>
+
+      <div class="card">
+        <h3>Registered</h3>
+        <p id="registered">0</p>
+      </div>
+
+      <div class="card">
+        <h3>In Process</h3>
+        <p id="process">0</p>
+      </div>
+
+      <div class="card">
+        <h3>Completed</h3>
+        <p id="completed">0</p>
+      </div>
+    </section>
+
+    <section class="toolbar">
+      <input
+        type="text"
+        id="search"
+        placeholder="Search by name or passport..."
+      >
+
+      <select id="filter">
+        <option value="">All statuses</option>
+        <option value="Registered">Registered</option>
+        <option value="In Process">In Process</option>
+        <option value="Completed">Completed</option>
+        <option value="Cancelled">Cancelled</option>
+      </select>
+
+      <button onclick="addWorker()">+ Add Worker</button>
+    </section>
+
+    <section class="table-box">
+      <table>
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Phone</th>
+            <th>Passport</th>
+            <th>Age</th>
+            <th>Destination</th>
+            <th>Status</th>
+          </tr>
+        </thead>
+
+        <tbody id="workers">
+          <tr>
+            <td colspan="6" class="empty">
+              No workers added yet.
+            </td>
+          </tr>
+        </tbody>
+      </table>
+    </section>
+
+  </main>
+
+  <script>
+    function addWorker() {
+      alert("Worker form will be connected next.");
+    }
+
+    document.getElementById("search").addEventListener("input", function() {
+      // Search will be connected to Supabase next.
+    });
+
+    document.getElementById("filter").addEventListener("change", function() {
+      // Status filtering will be connected to Supabase next.
+    });
+  </script>
+
+</body>
+</html>
